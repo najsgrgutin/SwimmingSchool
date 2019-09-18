@@ -10,4 +10,5 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('login/', views.obtain_auth_token, name='api-token-auth'),
+    path('change_password/', ChangePasswordView.as_view(), name='change_password'),
 ]

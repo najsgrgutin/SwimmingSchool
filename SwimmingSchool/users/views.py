@@ -1,14 +1,16 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, views
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import permissions
-from users.models import CustomUser
-from users.serializers import UserSerializer, UserRegistrationSerializer
+from django.contrib.auth import get_user_model
+from users.serializers import UserSerializer, UserRegistrationSerializer, ChangePasswordSerializer
+
+User = get_user_model()
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = CustomUser.objects.all()
+    queryset = User.objects.all()
     serializer_class = UserSerializer
     lookup_field = 'username'
     http_method_names = ['get', 'patch', 'post', 'delete']
@@ -26,3 +28,25 @@ class UserViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class ChangePasswordView(views.APIView):
+
+    def get_object(self):
+        user = self.request.user
+        return user
+
+    def put(self, request, *args, **kwargs):
+        user = self.get_object()
+        serializer = ChangePasswordSerializer(data=request.data, context={'user': self.request.user})
+
+        if serializer.is_valid():
+            old_password = serializer.data.get('old_password')
+            if not user.check_password(old_password):
+                return Response({'old_password': 'Wrong password.'}, status=status.HTTP_400_BAD_REQUEST)
+
+            new_password = serializer.data.get('new_password')
+            user.set_password(new_password)
+            user.save()
+            return Response(status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

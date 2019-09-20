@@ -31,7 +31,8 @@ class Swimmer(models.Model):
     last_name = models.CharField(max_length=20)
     born = models.DateField()
     group = models.ForeignKey(SwimmingGroup, related_name='swimmers', on_delete=models.CASCADE)
-    parent = models.ForeignKey(User, related_name='swimmer', on_delete=models.CASCADE)
+    parent = models.ForeignKey(User, related_name='swimmer', on_delete=models.CASCADE,
+                               null=True, blank=True)
 
     class Meta:
         db_table = 'Swimmer'

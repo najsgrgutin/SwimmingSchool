@@ -9,20 +9,18 @@ from rest_framework import status
 from rest_framework.response import Response
 import datetime
 
+# roditelj nakon uspješne registracije i logina prvo bira svoje dijete
+# te se salje request da se dijetetu doda roditelj
 
-class NotificationListView(ListCreateAPIView):
+
+class NotificationViewSet(viewsets.ModelViewSet):
+    queryset = Notification.objects.all()
     permission_classes = [IsAuthOrCoach]
     serializer_class = NotificationSerializer
-    queryset = Notification.objects.all()
+    http_method_names = ['get', 'post', 'put', 'patch', 'delete']
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
-
-
-class NotificationDetailView(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthOrCoach]
-    serializer_class = NotificationSerializer
-    queryset = Notification.objects.all()
 
     def perform_update(self, serializer):
         serializer.save(created_by=self.request.user)
@@ -36,37 +34,30 @@ class SwimmingGroupViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
 
 
-class SwimmerListView(ListCreateAPIView):
+class SwimmerViewSet(viewsets.ModelViewSet):
     queryset = Swimmer.objects.all()
     serializer_class = SwimmerSerializer
     permission_classes = [IsAdminUser]
+    http_method_names = ['get', 'post', 'put', 'patch', 'delete']
 
     def perform_create(self, serializer):
         group_id = self.request.data['group']
-        parent_id = self.request.data['parent']
-        group = SwimmingGroup.objects.get(id=group_id)
-        parent = User.objects.get(id=parent_id)
-        serializer.save(group=group, parent=parent)
+        group = SwimmingGroup.objects.get(id=int(group_id))
+        serializer.save(group=group)
 
-
-class SwimmerDetailView(RetrieveUpdateDestroyAPIView):
-    queryset = Swimmer.objects.all()
-    serializer_class = SwimmerSerializer
-    permission_classes = [IsAdminUser]
-
-    # mozda apiview pa da poboljsam to
     def perform_update(self, serializer):
         group_id = self.request.data['group']
-        # parent_id = self.request.data['parent']
         group = SwimmingGroup.objects.get(id=group_id)
-        # parent = User.objects.get(id=parent_id)
         serializer.save(group=group)
-        serializer.save(data=self.request.data)
 
 
 class TrainingView(APIView):
     permission_classes = [IsAuthOrCoach]
 
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        print(request)
+        return Response()
 
+    def post(self, request, *args, **kwargs):
+        print(request.data)
         return Response()

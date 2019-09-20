@@ -4,7 +4,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import permissions
 from django.contrib.auth import get_user_model
-from users.serializers import UserSerializer, UserRegistrationSerializer, ChangePasswordSerializer
+from users.serializers import UserSerializer, UserRegistrationSerializer, \
+    ChangePasswordSerializer, CheckEmailSerializer, CheckUsernameSerializer
 
 User = get_user_model()
 
@@ -50,3 +51,26 @@ class ChangePasswordView(views.APIView):
             return Response(status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CheckUsernameView(views.APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, req, *args, **kwargs):
+        print(req.data)
+        serializer = CheckUsernameSerializer(data=req.data)
+        if serializer.is_valid():
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CheckEmailView(views.APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, req, *args, **kwargs):
+        print(req.data)
+        serializer = CheckEmailSerializer(data=req.data)
+        if serializer.is_valid():
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+

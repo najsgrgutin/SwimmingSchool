@@ -139,8 +139,4 @@ STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-CORS_ORIGIN_WHITELIST = [
-    'localhost:3000',
-]
-
 CORS_ORIGIN_ALLOW_ALL = True

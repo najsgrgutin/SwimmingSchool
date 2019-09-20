@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'swimmingschoolapp',
     'users',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,3 +138,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+CORS_ORIGIN_WHITELIST = [
+    'localhost:3000',
+]
+
+CORS_ORIGIN_ALLOW_ALL = True

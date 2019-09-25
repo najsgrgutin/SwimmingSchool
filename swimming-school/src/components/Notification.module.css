@@ -1,0 +1,36 @@
+.notificationContainer {
+    width: 40%;
+    height: 170px;
+    background-color: #2B6AF0;
+    margin-bottom: 30px;
+    border: 1px solid black;
+}
+
+.notificationTitle {
+    display: flex;
+    align-items: center;
+    background-color: yellow;
+    height: 90px;
+    padding-left: 12px;
+    overflow: auto;
+    padding-top: 3px;
+    padding-bottom: 5px;
+}
+
+.notificationDate {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 7px;
+    background-color: green;
+    height: 40px;
+}
+
+.notificationAuthor {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 7px;
+    background-color: gray;
+    height: 32px;
+}

@@ -4,6 +4,7 @@
     background-color: #2B6AF0;
     margin-bottom: 30px;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .notificationTitle {

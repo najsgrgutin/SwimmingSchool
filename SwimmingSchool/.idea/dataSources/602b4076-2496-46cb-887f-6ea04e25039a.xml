@@ -133,7 +133,6 @@
     <column id="44" parent="8" name="parent_id">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <index id="45" parent="8" name="Swimmer_group_id_d1b43b87">
       <ColNames>group_id</ColNames>

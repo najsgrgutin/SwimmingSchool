@@ -59,5 +59,10 @@ class TrainingView(APIView):
         return Response()
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
+        print('view', request.data)
+        serializer = TrainingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            print('okej')
+        print(serializer.data)
         return Response()

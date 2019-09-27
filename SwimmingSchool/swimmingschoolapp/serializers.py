@@ -1,6 +1,6 @@
-from swimmingschoolapp.models import *
-from rest_framework import serializers
 from users.serializers import UserSerializer
+from .models import *
+from rest_framework import serializers
 
 
 class NotificationSerializer(serializers.ModelSerializer):
@@ -40,6 +40,14 @@ class SwimmerSerializer(serializers.ModelSerializer):
 
 
 class TrainingSerializer(serializers.ModelSerializer):
+    trained_by = UserSerializer(many=True)
+
+    def validate(self, attrs):
+        print(attrs)
+        return attrs
+
+    def save(self, **kwargs):
+        print(kwargs)
 
     class Meta:
         model = Training

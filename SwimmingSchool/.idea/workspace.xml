@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9fd47c20-bea1-4ff2-a219-869fab77196e" name="Default Changelist" comment="" />
+    <list default="true" id="9fd47c20-bea1-4ff2-a219-869fab77196e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/602b4076-2496-46cb-887f-6ea04e25039a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/602b4076-2496-46cb-887f-6ea04e25039a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimmingschoolapp/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/swimmingschoolapp/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimmingschoolapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/swimmingschoolapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/serializers.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,12 +153,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ed2d08ab" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -176,6 +177,7 @@
       <workItem from="1568922443845" duration="265000" />
       <workItem from="1568972438163" duration="8491000" />
       <workItem from="1568989006445" duration="225000" />
+      <workItem from="1569002967068" duration="1558000" />
     </task>
     <servers />
   </component>

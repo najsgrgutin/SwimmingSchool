@@ -7,7 +7,7 @@ export function loginUser(loginData, props) {
                 return Promise.reject('Wrong username or password');
             else {
                 localStorage.setItem('token', response.token);
-                props.history.push('/');
+                props.history.push('/home');
             }
         })
 }

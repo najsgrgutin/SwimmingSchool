@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    background-color: steelblue;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.groupSelect {
+    width: 150px;
+    height: 30px;
+    margin-left: 60px;
+}
+
+.logoutButton {
+    color: #FFFFFF;
+    width: 120px;
+    height: 35px;
+    font-size: 15px;
+    background-color: #2B6AF0;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 60px;
+}

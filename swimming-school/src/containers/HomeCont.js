@@ -5,6 +5,9 @@ import { getNotifications } from '../services/NotificationService';
 import { logOut } from '../services/LogoutService';
 import styles from './HomeCont.module.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+
 export default function HomeCont(props) {
 
     const [notifications, setNotifications] = useState('');
@@ -18,7 +21,10 @@ export default function HomeCont(props) {
     return (
         <div className={styles.container}>
             <Header logOut={logOut} props={props} />
-            <h1>Obavijesti</h1>
+            <div className={styles.titleContainer}>  
+                <div className={styles.title}>Obavijesti</div>
+                <FontAwesomeIcon className={styles.addIcon} icon={faPlusCircle} />
+            </div>
             {notifications ? 
                 notifications.map((notification) => <NotificationCont key={notification.id} details={notification} props={props} />)
                 :

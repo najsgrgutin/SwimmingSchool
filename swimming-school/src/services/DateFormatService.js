@@ -1,5 +1,8 @@
+import moment from 'moment';
+
 export function getDate(timestamp) {
-    return timestamp.split('T')[0];
+    moment();
+    return moment(timestamp.split('T')[0]).format('LL');
 }
 
 export function getTime(timestamp) {

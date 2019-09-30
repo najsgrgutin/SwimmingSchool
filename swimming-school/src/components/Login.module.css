@@ -4,7 +4,7 @@
     align-items: center; 
     justify-content: center;
     margin-top: 10%;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Helvetica Neue';
 }
 
 .loginButton {
@@ -13,20 +13,21 @@
     height: 35px;
     font-size: 15px;
     margin-bottom: 20px;
-    background-color: #2B6AF0;
+    margin-top: 20px;
+    background-color: #0077C3;
     cursor: pointer;
     border-radius: 4px;
 }
 
 .registerHereButton {
     cursor: pointer;
-    color: #2B6AF0;
+    color: #0077C3;
     font-size: 20px;
     text-decoration: none;
 }
 
 .loginTitle {
-    color: #274DB8;
+    color: #0077C3;
     margin-bottom: 40px;
 }
 

@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 10%;
+    font-family: 'Helvetica Neue';
 }
 
 .formError {
@@ -11,7 +12,7 @@
 }
 
 .registrationTitle {
-    color: #274DB8;
+    color: #0077C3;
     margin-bottom: 40px;
 }
 
@@ -32,6 +33,6 @@
     margin-bottom: 20px;
     margin-top: 10px;
     border-radius: 4px;
-    background-color: #2B6AF0;
+    background-color: #0077C3;
     cursor: pointer;
 }

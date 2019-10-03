@@ -10,6 +10,8 @@ django = "*"
 django-rest-framework = "*"
 psycopg2-binary = "*"
 django-cors-headers = "*"
+djangorestframework-jwt = "*"
+django-rest-auth = "*"
 
 [requires]
 python_version = "3.7"

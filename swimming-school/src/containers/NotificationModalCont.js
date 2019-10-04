@@ -7,7 +7,7 @@ export default function NotificationModalCont(props) {
     const [notification, setNotification] = useState('');
 
     function goBack() {
-        props.history.replace(props.history.push('/home'));
+        props.history.push('/home');
     }
 
     function stopPropagation(event) {
@@ -17,7 +17,8 @@ export default function NotificationModalCont(props) {
     useEffect(() =>  {
         const token =  localStorage.getItem('token');
         getNotification(token, props.match.params.id)
-            .then((response) => setNotification(response));
+            .then((response) => setNotification(response))
+            .catch((error) => console.log('ERROR ' + error));
     }, [props.match.params.id]);
 
     return (

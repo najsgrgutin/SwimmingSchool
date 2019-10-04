@@ -1,16 +1,30 @@
 .header {
     display: flex;
-    height: 60px;
+    height: 9vh;
     width: 100%;
-    background-color: steelblue;
+    background-color: #0077C3;
     align-items: center;
     justify-content: space-between;
+}
+
+.logoGroupContainer {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 30px;
 }
 
 .groupSelect {
     width: 150px;
     height: 30px;
-    margin-left: 60px;
+    margin-left: 100px;
 }
 
 .logoutButton {
@@ -23,3 +37,4 @@
     border-radius: 4px;
     margin-right: 60px;
 }
+

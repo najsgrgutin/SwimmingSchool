@@ -12,7 +12,7 @@
 
 .modalContainer {
     width: 600px;
-    height: 300px;
+    height: 250px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -21,6 +21,25 @@
 
 .title {
     font-size: 25px;
-    margin-top: 15px;
+    margin: 15px 0px 0px 12px;
+    width: 100%;
+}
+
+.description {
+    margin-top: 8px;
+    margin-left: 15px;
+    overflow: auto;
+    width: 100%;
+    text-align: left;
+    color: green;
+}
+
+.userDateContainer {
+    display: flex;
+    width: 100%;
+    margin-top: 12px;
+    margin-right: 8px;
+    flex-direction: column;
+    align-items: flex-end;
 }
 

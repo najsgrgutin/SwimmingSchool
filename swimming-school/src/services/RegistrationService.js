@@ -1,7 +1,7 @@
-import { post } from './API'; 
+import { postLoginRegistration } from './API'; 
 
 export function registerUser(user, props) {
-    return post('users/registration/', user)
+    return postLoginRegistration('users/registration/', user)
         .then((response) => {
             if (response.username instanceof Array)
                 return Promise.reject('Username already taken');

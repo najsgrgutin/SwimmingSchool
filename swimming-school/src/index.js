@@ -6,6 +6,7 @@ import LoginCont from './containers/LoginCont';
 import RegistrationCont from './containers/RegistrationCont';
 import WelcomePage from './components/WelcomePage';
 import NotificationModalCont from './containers/NotificationModalCont';
+import CreateNotificationCont from './containers/CreateNotificationModalCont';
 
 function PrivateRoute({ isLoggedIn, Comp, ...rest }) {
     function render(props) {
@@ -22,6 +23,7 @@ function Application() {
         <Router>
             <PrivateRoute isLoggedIn={Boolean(loggedIn)} path='/home' Comp={HomeCont} />
             <PrivateRoute isLoggedIn={Boolean(loggedIn)} path='/home/notification/:id' Comp={NotificationModalCont} />
+            <PrivateRoute isLoggedIn={Boolean(loggedIn)} path='/home/create' Comp={CreateNotificationCont} />
             <Route exact path='/login' component={LoginCont} />
             <Route exact path='/registration' component={RegistrationCont} />
             <Route exact path='/welcome' component={WelcomePage} />

@@ -1,0 +1,80 @@
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #00000077;
+}
+
+.modalContainer {
+    width: 600px;
+    height: 420px;
+    background-color: white;
+}
+
+.modalTitle {
+    font-size: 25px;
+    margin: 15px 0px 30px 0px;
+    padding-left: 8px;
+    width: 100%;
+}
+
+.title {
+    resize: none;
+    width: 60%;
+    font-size: 13px;
+    height: 40px;
+    border: 0;
+    padding-left: 10px;
+    margin: 0px 8px 0px 30px;
+    background-color: #F2F2F2;
+}
+
+.description {
+    resize: none;
+    width: 85%;
+    height: 200px;
+    border: 0;
+    font-size: 12px;
+    padding-left: 10px;
+    margin-left: 30px;
+    background-color: #F2F2F2;
+}
+
+.publishButton {
+    color: #FFFFFF;
+    width: 150px;
+    height: 35px;
+    font-size: 15px;
+    margin: 12px 20px 0px 0px;
+    background-color: #0077C3;
+    cursor: pointer;
+    border-radius: 4px;
+    float: right;
+}
+
+.formError {
+    color: #CC0000;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: grey;
+}
+
+.descriptionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: grey;
+}
+
+.counter {
+    font-size: 14px;
+}

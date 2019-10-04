@@ -31,3 +31,14 @@ export function get(model, token) {
         }
     }).then((response) => response.json());
 }
+
+export function deleteNotif(model, token) {
+    return fetch(`http://127.0.0.1:8000/api/v1/${model}`, {
+        method: 'DELETE',
+        headers: {
+			'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'JWT ' + token
+        }
+    })
+}

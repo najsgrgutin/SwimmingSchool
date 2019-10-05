@@ -1,8 +1,9 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import styles from './Header.module.css';
 import logo from '../images/logo.jpg';
 
-export default function Header({ logOut, props }) {
+function HeaderComponent({ logOut, props }) {
 
     function onHomeClick() {
         props.history.push('/home');
@@ -23,3 +24,7 @@ export default function Header({ logOut, props }) {
     );
 
 }
+
+
+
+export const Header = observer(HeaderComponent);

@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
 import useForm from 'react-hook-form';
-import { createNotification } from '../services/NotificationService';
+import { observer } from 'mobx-react';
 import styles from './CreateNotificationModal.module.css';
 
-export default function CreateNotificationModal({ goBack, stopPropagation }) {
+function CreateNotificationModalComponent({ goBack, stopPropagation, handleNotificationCreate }) {
 
     const { register, handleSubmit } = useForm();
 
     const [titleCounter, setCounterTitle] = useState(0);
     const [descriptionCounter, setDescriptionCounter] = useState(0);
-
-    function handleNotificationCreate(data) {
-        const token = localStorage.getItem('token');
-        const notificationData = {
-            'title': data.notification.title,
-            'description': data.notification.description,
-        };
-        createNotification(notificationData, token)
-            .catch((error) => console.log(error));;
-    }
 
     function changeTitleNumberCounter(event) {
         setCounterTitle(event.target.value.length);
@@ -60,3 +50,5 @@ export default function CreateNotificationModal({ goBack, stopPropagation }) {
     );
 
 }
+
+export const CreateNotificationModal = observer(CreateNotificationModalComponent);

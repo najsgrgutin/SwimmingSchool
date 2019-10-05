@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { observer } from 'mobx-react';
 import { registerUser } from '../services/RegistrationService';
-import Registration from '../components/Registration';
+import { Registration } from '../components/Registration';
 
-export default function RegistrationCont(props) {
+function RegistrationContainer(props) {
 
     const [showError, setShowError] = useState('');
 
@@ -24,6 +25,8 @@ export default function RegistrationCont(props) {
     );
 
 }
+
+export const RegistrationCont = observer(RegistrationContainer)
 
 
 

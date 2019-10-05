@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import NotificationModal from '../components/NotificationModal';
+import { observer } from 'mobx-react';
+import { NotificationModal } from '../components/NotificationModal';
 import { getNotification } from '../services/NotificationService';
 
-export default function NotificationModalCont(props) {
+export default function NotificationModalContainer(props) {
 
     const [notification, setNotification] = useState('');
 
@@ -30,3 +31,5 @@ export default function NotificationModalCont(props) {
     );
 
 }
+
+export const NotificationModalCont = observer(NotificationModalContainer)

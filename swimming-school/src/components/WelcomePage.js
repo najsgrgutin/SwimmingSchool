@@ -1,8 +1,9 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import styles from './WelcomePage.module.css';
 import logo from '../images/logo.jpg';
 
-export default function WelcomePage(props) {
+function WelcomePageComponent(props) {
 
     function onLoginClick() {
         props.history.push('/login');
@@ -27,3 +28,5 @@ export default function WelcomePage(props) {
     );
 
 }
+
+export const WelcomePage = observer(WelcomePageComponent);

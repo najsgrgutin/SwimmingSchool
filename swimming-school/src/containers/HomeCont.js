@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
-import NotificationCont from '../containers/NotificationCont';
+import React, { useState, useEffect, useContext } from 'react';
+import { Header } from '../components/Header';
+import { NotificationCont } from '../containers/NotificationCont';
 import { getNotifications } from '../services/NotificationService';
 import { logOut } from '../services/LogoutService';
 import { tokenService } from '../services/TokenService';
@@ -8,20 +8,26 @@ import styles from './HomeCont.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
+import { AppContext } from '../state/AppContext';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
 
-export default function HomeCont(props) {
+
+function HomeContainer(props) {
+
+    const { appState } = useContext(AppContext);
 
     const [notifications, setNotifications] = useState('');
     const [decoded, current_time] = tokenService();
 
     useEffect(() => {
-        if (current_time > decoded.exp)
+        if (current_time > decoded.exp) {
             props.history.push('/login');
-        else if (!notifications) {
-            getNotifications(localStorage.getItem('token'))
-                .then((notification) => setNotifications(notification.reverse()));
-        } // eslint-disable-next-line
-    }, [props.history.location.pathname]);
+        }
+        getNotifications(localStorage.getItem('token'), appState)
+            .then((notifications) => setNotifications(notifications.reverse()));
+        // eslint-disable-next-line
+    }, [/* props.history.location.pathname,  */toJS(appState.notifications).length]);
 
     function onCreateNotificationClick() {
         props.history.push('/home/create');
@@ -43,3 +49,6 @@ export default function HomeCont(props) {
     );
 
 }
+
+
+export const HomeCont = observer(HomeContainer);

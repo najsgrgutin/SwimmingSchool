@@ -1,9 +1,13 @@
-import React from 'react';
-import Notification from '../components/Notification';
+import React, { useContext } from 'react';
+import { observer } from 'mobx-react';
+import { AppContext } from '../state/AppContext';
+import { Notification } from '../components/Notification';
 import { deleteNotification } from '../services/NotificationService';
 import { tokenService } from '../services/TokenService';
 
-export default function NotificationCont({ details, props }) {
+function NotificationContainer({ details, props }) {
+
+    const { appState } = useContext(AppContext);
 
     const [decoded] = tokenService();
 
@@ -13,7 +17,7 @@ export default function NotificationCont({ details, props }) {
 
     function onDeleteNotificationClick(event) {
         event.stopPropagation();
-        deleteNotification(localStorage.getItem('token'), details.id)
+        deleteNotification(localStorage.getItem('token'), details.id, appState.notifications)
             .then(alert('Notification deleted'));
     }
 
@@ -27,3 +31,5 @@ export default function NotificationCont({ details, props }) {
     );
 
 }
+
+export const NotificationCont = observer(NotificationContainer)

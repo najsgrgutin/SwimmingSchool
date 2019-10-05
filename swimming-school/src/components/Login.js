@@ -1,10 +1,11 @@
 import React from 'react';
 import useForm from 'react-hook-form';
+import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
 import styles from './Login.module.css';
 
-export default function Login({ onLoginFunc, showError }) {
+function LoginComponent({ onLoginFunc, showError }) {
 
     const { register, handleSubmit } = useForm();
 
@@ -41,3 +42,5 @@ export default function Login({ onLoginFunc, showError }) {
         </form>
   );
 }
+
+export const Login = observer(LoginComponent);

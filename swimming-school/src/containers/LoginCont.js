@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Login from '../components/Login';
+import { observer } from 'mobx-react';
+import { Login } from '../components/Login';
 import { loginUser } from '../services/LoginService';
 
-function LoginCont(props) {
+function LoginContainer(props) {
 
     const [showError, setShowError] = useState('');
 
@@ -25,5 +26,5 @@ function LoginCont(props) {
 }
 
 
-export default LoginCont;
+export const LoginCont = observer(LoginContainer);
 

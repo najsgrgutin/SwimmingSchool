@@ -1,8 +1,9 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import { getTime, getDate } from '../services/DateFormatService';
 import styles from './NotificationModal.module.css';
 
-export default function NotificationModal({ goBack, stopPropagation, details }) {
+function NotificationModalComponent({ goBack, stopPropagation, details }) {
 
     return (
             <div className={styles.screen} onClick={goBack}>
@@ -22,3 +23,5 @@ export default function NotificationModal({ goBack, stopPropagation, details }) 
     );
 
 }
+
+export const NotificationModal = observer(NotificationModalComponent);

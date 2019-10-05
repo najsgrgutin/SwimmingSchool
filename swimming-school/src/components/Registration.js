@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { observer } from 'mobx-react';
 import useForm from 'react-hook-form';
 import styles from './Registration.module.css'
 import ErrorMessage from './ErrorMessage';
 
 
-export default function Registration({ onRegisterFunc, showError }) {
+function RegistrationComponent({ onRegisterFunc, showError }) {
 
     const { register, handleSubmit, errors } = useForm();
 
@@ -81,3 +82,6 @@ export default function Registration({ onRegisterFunc, showError }) {
     );
 
 }
+
+
+export const Registration = observer(RegistrationComponent);

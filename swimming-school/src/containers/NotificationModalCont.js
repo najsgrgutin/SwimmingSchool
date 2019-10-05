@@ -16,7 +16,7 @@ export default function NotificationModalContainer(props) {
     }
 
     useEffect(() =>  {
-        const token =  localStorage.getItem('token');
+        const token = localStorage.getItem('token');
         getNotification(token, props.match.params.id)
             .then((response) => setNotification(response))
             .catch((error) => console.log('ERROR ' + error));

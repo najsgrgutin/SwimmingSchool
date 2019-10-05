@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { AppContext } from '../state/AppContext';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
 import { Header } from '../components/Header';
 import { NotificationCont } from '../containers/NotificationCont';
 import { getNotifications } from '../services/NotificationService';
@@ -7,11 +10,6 @@ import { tokenService } from '../services/TokenService';
 import styles from './HomeCont.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-
-import { AppContext } from '../state/AppContext';
-import { toJS } from 'mobx';
-import { observer } from 'mobx-react';
-
 
 function HomeContainer(props) {
 
@@ -27,7 +25,7 @@ function HomeContainer(props) {
         getNotifications(localStorage.getItem('token'), appState)
             .then((notifications) => setNotifications(notifications.reverse()));
         // eslint-disable-next-line
-    }, [/* props.history.location.pathname,  */toJS(appState.notifications).length]);
+    }, [toJS(appState.notifications).length]);
 
     function onCreateNotificationClick() {
         props.history.push('/home/create');

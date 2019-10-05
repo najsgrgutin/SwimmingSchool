@@ -18,7 +18,7 @@ function LoginContainer(props) {
 
     return (
         <Login
-            onLoginFunc={onLoginClick}
+            onLoginClick={onLoginClick}
             showError={showError}
         />
     );

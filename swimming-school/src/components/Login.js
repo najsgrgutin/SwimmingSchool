@@ -5,16 +5,12 @@ import { Link } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
 import styles from './Login.module.css';
 
-function LoginComponent({ onLoginFunc, showError }) {
+function LoginComponent({ onLoginClick, showError }) {
 
     const { register, handleSubmit } = useForm();
 
-    function handleLoginClick(data) {
-        onLoginFunc(data);
-    }
-
     return (
-        <form className={styles.loginContainer} onSubmit={handleSubmit(handleLoginClick)}>
+        <form className={styles.loginContainer} onSubmit={handleSubmit(onLoginClick)}>
             <h1 className={styles.loginTitle}>Login</h1>
             <input 
                 className={styles.loginInput} 

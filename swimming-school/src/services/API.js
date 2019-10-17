@@ -27,7 +27,7 @@ export function get(model, token) {
         headers: {
 			'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': 'JWT ' + token
+            'Authorization': `JWT ${token}`
         }
     }).then((response) => response.json());
 }

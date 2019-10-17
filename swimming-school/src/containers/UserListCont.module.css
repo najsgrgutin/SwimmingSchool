@@ -1,0 +1,22 @@
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
+}
+
+.main {
+    width: 70%;
+    display: grid;
+    background-color: #F0F0F0;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px 20px;
+    justify-items: center;
+    padding-bottom: 10px;
+}

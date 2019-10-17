@@ -23,7 +23,11 @@ function HomeContainer(props) {
             props.history.push('/login');
         }
         getNotifications(localStorage.getItem('token'), appState)
-            .then((notifications) => setNotifications(notifications.reverse()));
+            .then((notifications) => {
+                if (!notifications.detail) {
+                    setNotifications(notifications.reverse())
+                }
+            });
         // eslint-disable-next-line
     }, [toJS(appState.notifications).length]);
 

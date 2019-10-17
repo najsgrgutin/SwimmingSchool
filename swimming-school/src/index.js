@@ -8,6 +8,7 @@ import { RegistrationCont } from './containers/RegistrationCont';
 import { WelcomePage } from './components/WelcomePage';
 import { NotificationModalCont } from './containers/NotificationModalCont';
 import { CreateNotificationModalCont } from './containers/CreateNotificationModalCont';
+import { UserListCont } from './containers/UserListCont';
 
 function PrivateRoute({ isLoggedIn, Comp, ...rest }) {
     function render(props) {
@@ -28,6 +29,7 @@ function Application() {
             <Route exact path='/login' component={LoginCont} />
             <Route exact path='/registration' component={RegistrationCont} />
             <Route exact path='/welcome' component={WelcomePage} />
+            <Route exact path='/table' component={UserListCont} />
         </Router>
     );
 }

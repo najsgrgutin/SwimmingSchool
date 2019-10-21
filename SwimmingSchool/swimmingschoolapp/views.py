@@ -7,6 +7,7 @@ from rest_framework.generics import *
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.decorators import action
 import datetime
 
 # roditelj nakon uspješne registracije i logina prvo bira svoje dijete
@@ -32,6 +33,13 @@ class SwimmingGroupViewSet(viewsets.ModelViewSet):
     serializer_class = SwimmingGroupSerializer
     permission_classes = [IsAuthOrCoach]
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
+
+    @action(methods=['get'], permission_classes=[IsAuthOrCoach], detail=True)
+    def swimmers(self, request, *args, **kwargs):
+        group = self.get_object()
+        swimmers = Swimmer.objects.filter(group=group)
+        serializer = SwimmerSerializer(swimmers, many=True)
+        return Response(serializer.data)
 
 
 class SwimmerViewSet(viewsets.ModelViewSet):
